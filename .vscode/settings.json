@@ -1,0 +1,8 @@
+{
+    "code-runner.runInTerminal": true,
+    "cmake.configureOnOpen": true,
+    "files.associations": {
+        "ostream": "cpp",
+        "iostream": "cpp"
+    }
+}
