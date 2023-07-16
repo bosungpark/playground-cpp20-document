@@ -49,3 +49,11 @@ delete를 해주더라도, 포인터는 이전의 주소값을 가지고 있는�
 
 Golden Rule of Dynamic Memory Allocation
 =
+std::vector<> 혹은 Smart Pointer를 사용하는 것이 직접 new, delete를 이용해 조작하는 것 보다 좋다.
+
+**Raw Pointers and Smart Pointers**
+...
+
+Understanding References
+=
+레퍼런스는 포인트와 유사한 구석이 많다. 하지만 레퍼런스는 선언하고 생성할 수 없다는 것이 차이점이다.
