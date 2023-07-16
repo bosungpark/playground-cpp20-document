@@ -20,5 +20,22 @@ int main() {
     std::cout << (*pnumber == 12345L) << std::endl; // 1
     std::cout << "" << std::endl; 
 
+
+    // initialize pointer using new
+    double* pvalue = new double (3.14);
+
+    std::cout << *pvalue << std::endl;  // 3.14
+
+    // release pointer using delete
+    delete pvalue;
+    std::cout << *pvalue << std::endl;  // 3.14 -> dangling pointer: release를 하더라도 이전의 주소값을 가지고 있는다.
+    
+    pvalue = nullptr;
+    std::cout << *pvalue << std::endl;  // Segmentation fault: 11
+
+
+
+
+
     return 0;
 }
