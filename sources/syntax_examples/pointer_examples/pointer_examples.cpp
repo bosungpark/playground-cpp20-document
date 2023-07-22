@@ -33,9 +33,5 @@ int main() {
     pvalue = nullptr;
     std::cout << *pvalue << std::endl;  // Segmentation fault: 11
 
-
-
-
-
     return 0;
 }
