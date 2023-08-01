@@ -36,4 +36,33 @@ int main() {
     word = there;
     std::cout << "this is operation of word: " + word << std::endl; 
 
+    word.append("and append some words.");
+    std::cout << "this is operation of word: " + word << std::endl; 
+
+    // for loop
+    for (size_t i {}; i < there.length(); ++i)
+        std::cout << there[i] << std::endl; 
+
+    // fucked complie
+    std::string foo {"jiji"};
+    foo += 69;
+    std::cout << foo << std::endl;  // jijiE
+
+    // Specifying ch as a reference type allows the character in the string to be modified within the loop. 
+    for (char& ch : there)
+        ch = static_cast<char>(std::toupper(ch));
+    std::cout << there << std::endl;  // THERE!
+
+    // substr
+    std::cout << there.substr(0,10000) << std::endl;  // THERE!
+    std::cout << there.substr(0) << std::endl;  // THERE!
+    std::cout << there.substr(0,5) << std::endl;  // THERE
+
+    // Comparing Strings
+    std::string word1 {"age"};
+    std::string word2 {"beauty"};
+
+    std::cout << word1 << (word1 < word1 ? " comes " : " does not come ")
+          << "before " << word2 << '.' << std::endl;
+
 }
