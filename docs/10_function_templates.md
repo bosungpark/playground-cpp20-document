@@ -14,3 +14,11 @@ Function Templates
 
 Function Templates and Overloading
 =
+같은 이름을 가지는 함수를 정의함으로써 오버라이드가 일어나고 오버로딩을 하게 해준다.
+
+Function Templates with Multiple Parameters
+=
+탬플릿 아규먼트의 타입이 서로 다르다면, 리턴 타입을 정의하는 과정에서 혼돈이 생길 수 있다.
+
+decltype(auto)
+=
