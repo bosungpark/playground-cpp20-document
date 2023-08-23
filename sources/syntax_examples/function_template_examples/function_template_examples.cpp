@@ -21,6 +21,8 @@ int main() {
 
     // check if return type is converted
     std::cout << "Larger of 1.5 and 2 is " << larger<int>(1.5, 2.5) << std::endl;  // 2.5
+    std::cout << "Larger of 1.5 and 2 is " << larger<int>(1, 2.5) << std::endl;  // 2.5
+    std::cout << "Larger of 1.5 and 2 is " << larger<int>(1, 2) << std::endl;  // 2
     std::cout << "Larger of 1.5 and 2 is " << larger<int, double>(1.5, 2.5) << std::endl;  // 2.5
     std::cout << "Larger of 1.5 and 2 is " << larger<int, double, int>(1.5, 2.5) << std::endl;  // 2
 
