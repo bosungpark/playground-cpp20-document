@@ -26,7 +26,7 @@ Function Templates with Multiple Parameters
 
 decltype(auto)
 =
- decltype 타입 지정자는 명시된 대상의 타입을 산출합니다. 
+decltype 타입 지정자는 명시된 대상의 타입을 산출합니다. 
 
 Default Values for Template Parameters
 =
