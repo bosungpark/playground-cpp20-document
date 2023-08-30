@@ -15,3 +15,9 @@ Modules and Namespaces
 Modules
 =
 모듈은 기능의 그룹, 혹은 배포의 단위로 해석될 수 있다.
+
+Separating Interface from Implementation
+=
+
+Implicit Imports in Implementation Files
+=
