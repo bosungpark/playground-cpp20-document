@@ -16,8 +16,6 @@ Modules
 =
 모듈은 기능의 그룹, 혹은 배포의 단위로 해석될 수 있다.
 
-Separating Interface from Implementation
+Namespaces
 =
-
-Implicit Imports in Implementation Files
-=
+앤티티의 그룹을 수직적으로 분할하는 것.
