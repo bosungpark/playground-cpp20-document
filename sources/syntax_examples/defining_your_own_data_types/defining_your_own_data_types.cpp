@@ -54,6 +54,29 @@ class Box
         static inline size_t s_object_count {};
     };
 
+class Person
+{
+public:
+    string name;
+ 
+    class Address
+    {
+    public:
+        string country;
+        string city;
+        int houseNumber;
+    };
+ 
+    Address add;
+ 
+    void print()
+    {
+        cout << "Country : " << add.country << endl;
+        cout << "City : " << add.city << endl;
+        cout << "HouseNumber : " << add.houseNumber << endl;
+    }
+};
+
 int main() {
     std::cout << Box::getObjectCount() << std::endl;  // 0
 
@@ -86,6 +109,20 @@ int main() {
     std::cout << surfaceArea(myBox) << std::endl;  // 13000
 
     std::cout << myBox.getObjectCount() << std::endl;  // 2 (myBox, myBox2)
+
+    // nested class
+    Person Bosung;
+    // Address addr; // 컴파일 에러
+    Person::Address ExampleAdd;
+ 
+    Bosung.add.country = "Korea";
+    Bosung.add.city = "Seoul";
+    Bosung.add.houseNumber = 5;
+ 
+    Bosung.print();
+    // Country : Korea
+    // City : Seoul
+    // HouseNumber : 5
 
     // Box destructor called.
     // Box destructor called.

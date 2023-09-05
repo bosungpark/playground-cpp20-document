@@ -50,6 +50,38 @@ Constructors
 =
 아무 인자도 지정하지 않으면 기본 기본 생성자가 객체를 생성
 
+static
+=
+Although static member variables of a class are accessible in a member function of an object, they aren’t part of the object and don’t contribute to its size.
 
+Friends
+=
+firend 클래스는 friend로 선언된 다른 클래스의 private 및 protected 멤버에 접근할 수 있다.
+
+즉 함수 혹은 클래스를 특정 클래스의 친구로 설정하여 특정 클래스의 값에 접근할 수 있게 해준다.
+
+A에 B라는 클래스를 친구로 추가한다면 B는 A의 모든 값에 접근할 수 있다.
+하지만 A가 B의 값에 접근하는 것은 불가능하다.
+마찬가지로 A -> B -> C와 같이 친구관계를 타고 접근하는 것도 불가능하다.
+
+The Size of a Class Object
+=
+
+You obtain the size of a class object by using the sizeof operator in the same way you have previously with fundamental data types. You can apply the operator to a particular object or to the class type. 
+
+The size of a class object is generally the sum of the sizes of the member variables of the class, although it may turn out to be greater than this. This isn’t something that should bother you, but it’s nice to know why.
+
+On most computers, for performance reasons, two-byte variables must be placed at an address that
+is a multiple of two, four-byte variables must be placed at an address that is a multiple of four, and so on. This is called boundary alignment.
+
+A consequence of this is that sometimes the compiler must leave gaps between the memory for one value and the next. If, on such a machine, you have three variables that occupy two bytes, followed by a variable that requires four bytes, a gap of two bytes may be left in order to place the fourth variable on the correct boundary. In this case, the total space required by all four is greater than the sum of the individual sizes.
+
+Destructors
+=
+일반적으로 손 댈 필요 X
+
+Nested Classes
+=
+말 그대로 중첩 클래스
 
 
