@@ -2,8 +2,7 @@
 
 using namespace std;
 
-int main() {
-    class Box
+class Box
     {
 
     public:
@@ -35,6 +34,9 @@ int main() {
         Box& setWidth(double width)   { if (width > 0)  m_width  = width;  return *this;}
         Box& setHeight(double height) { if (height > 0) m_height = height; return *this;}
 
+        // friend
+        friend double surfaceArea(const Box& box);
+
 
     private:
 
@@ -42,6 +44,8 @@ int main() {
         double m_width{1.0};
         double m_height{1.0};
     };
+
+int main() {
 
     Box myBox{80.0, 50.0, 40.0};  
 
@@ -66,6 +70,15 @@ int main() {
     std::cout << boxPointer->getWidth() << std::endl;  // 50
     boxPointer->m_count = 3;
     std::cout << boxPointer->m_count << std::endl;  // 3 (mutable)
-    
+
+    // friends
+    std::cout << surfaceArea(myBox) << std::endl;  // 13000
+
     
 }
+
+// friend function to calculate the surface area of a Box object
+double surfaceArea(const Box& box) {
+    // can use interanl values
+    return 2.0 * (box.m_length * box.m_width + box.m_length * box.m_height + box.m_height * box.m_width);
+};
