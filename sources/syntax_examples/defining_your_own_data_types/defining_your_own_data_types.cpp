@@ -15,7 +15,12 @@ class Box
             m_length = length;
             m_width = width;
             m_height = height;
+            ++s_object_count;
         }
+
+        // destructors
+        // ~Box() {}
+        ~Box(); 
 
         mutable unsigned m_count{1};  // const일 때도 변경가능하도록 예외 설정
 
@@ -37,17 +42,23 @@ class Box
         // friend
         friend double surfaceArea(const Box& box);
 
+        static size_t getObjectCount() { return s_object_count; }
+
 
     private:
 
         double m_length{1.0};
         double m_width{1.0};
         double m_height{1.0};
+
+        static inline size_t s_object_count {};
     };
 
 int main() {
+    std::cout << Box::getObjectCount() << std::endl;  // 0
 
     Box myBox{80.0, 50.0, 40.0};  
+    Box myBox2{80.0, 50.0, 40.0}; 
 
     std::cout << myBox.volume() << std::endl; // 160000
 
@@ -74,7 +85,12 @@ int main() {
     // friends
     std::cout << surfaceArea(myBox) << std::endl;  // 13000
 
-    
+    std::cout << myBox.getObjectCount() << std::endl;  // 2 (myBox, myBox2)
+
+    // Box destructor called.
+    // Box destructor called.
+    // Box destructor called.
+    // Box destructor called.
 }
 
 // friend function to calculate the surface area of a Box object
@@ -82,3 +98,9 @@ double surfaceArea(const Box& box) {
     // can use interanl values
     return 2.0 * (box.m_length * box.m_width + box.m_length * box.m_height + box.m_height * box.m_width);
 };
+
+Box::~Box()                              // Destructor
+{
+  std::cout << "Box destructor called." << std::endl;
+  --s_object_count;
+}
