@@ -18,11 +18,23 @@ int main() {
             m_height = height;
         }
 
+        mutable unsigned m_count{1};  // const일 때도 변경가능하도록 예외 설정
+
         // Function to calculate the volume of a box
         double volume()
         {
             return m_length * m_width * m_height;
         }
+
+        // accessor functions.
+        double getLength() { return m_length; }
+        double getWidth() const { return m_width;  }  // const member functions.
+        double getHeight() { return m_height; }
+        // mutators
+        Box& setLength(double length) { if (length > 0) m_length = length; return *this;}
+        Box& setWidth(double width)   { if (width > 0)  m_width  = width;  return *this;}
+        Box& setHeight(double height) { if (height > 0) m_height = height; return *this;}
+
 
     private:
 
@@ -43,5 +55,17 @@ int main() {
     // it is interlinked with the original object
     std::cout << copyBox3.volume() << std::endl;  // 160000
 
+    // getter setter
+    std::cout << myBox.getLength() << std::endl;  // 80
+    myBox.setLength(100).setHeight(10); // method chaining
+    std::cout << myBox.getLength() << std::endl;  // 100
+    std::cout << myBox.getHeight() << std::endl;  // 10
+
+    const Box* boxPointer = &myBox;  // A pointer-to-const-Box variable
+    // boxPointer->m_length = 2; -> Error!
+    std::cout << boxPointer->getWidth() << std::endl;  // 50
+    boxPointer->m_count = 3;
+    std::cout << boxPointer->m_count << std::endl;  // 3 (mutable)
+    
     
 }
