@@ -5,10 +5,13 @@ using namespace std;
 
 class Box {
     public:
-        Box() = default;
-        Box(double length, double width, double height)
-            : m_length{length}, m_width{width}, m_height{height}
-        {}
+        // Constructors
+        Box(double l, double w, double h) : m_length{l}, m_width{w}, m_height{h}
+        { std::cout << "Box(double, double, double) called.\n"; }
+        explicit Box(double side) : Box{side, side, side}
+        { std::cout << "Box(double) called.\n"; }
+        Box() { std::cout << "Box() called.\n"; }   // Default constructor
+
         double volume() const { return m_length * m_width * m_height; }
         // Accessors
         double getLength() const { return m_length; }
@@ -24,8 +27,17 @@ class Box {
 
 class Carton : public Box {
     public:
-        explicit Carton(std::string_view material = "Cardboard")  // Constructor
-        : m_material{material} {}
+        Carton() { std::cout << "Carton() called.\n"; }
+
+        explicit Carton(std::string_view material) : m_material{material}
+        { std::cout << "Carton(string_view) called.\n"; }
+
+        Carton(double side, std::string_view material) : Box{side}, m_material{material}
+        { std::cout << "Carton(double,string_view) called.\n"; }
+
+        Carton(double l, double w, double h, std::string_view material) : Box{l, w, h}, m_material{material}
+        { std::cout << "Carton(double,double,double,string_view) called.\n"; }
+
         // can access to protected value
         double getDoubleHeight() const { return m_height*2; }
     private:
@@ -49,3 +61,7 @@ int main() {
     // can access to protected value
     std::cout << "chocolateCarton height * 2 is " << chocolateCarton.getDoubleHeight() << std::endl;
 }
+
+// -> 생성자는 부모부터 생성된다.
+// Box() called.
+// Carton() called.
