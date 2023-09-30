@@ -37,10 +37,26 @@ public, protected, privated 이렇게 3가지 접근 레벨을 가진다. 디폴
 Constructors in a Derived Class
 =
 부모에서 자식 클래스 순으로 평가되고, 따라서 생성자의 호출 순서도 동일하다.
+
+
 또 자식 클래스의 생성자의  initialization list 에서 부모 클래스의 멤버 변수를 초기화 할 수도 없다. 
 (You can never initialize member variables of a base class in the initialization list for a derived class’ constructor. Not even if those members are protected or public. )
 
 The Copy Constructor in a Derived Class
 =
 카피 생성자를 만들 때 부모의 카피 생성자 역시 명시하지 않는다면 올바른 카피가 일어나지 않는다. (자식만 카피)
+
+Inheriting Constructors
+=
+using을 사용해 부모 클래스의 생성자, 멤버에 대해 직접적인 상속이 가능하다.
+
+Destructors Under Inheritance
+=
+destructor는 자식부터 생성된다. (생성된 객체와 정확히 반대 순서)
+
+Multiple Inheritance
+=
+**Inherited Member Ambiguity**
+
+**Repeated Inheritance**
 

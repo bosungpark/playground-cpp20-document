@@ -12,6 +12,9 @@ class Box {
         { std::cout << "Box(double) called.\n"; }
         Box() { std::cout << "Box() called.\n"; }   // Default constructor
 
+        // Destructor
+        ~Box() { std::cout << "Box destructor" << std::endl; }
+
         double volume() const { return m_length * m_width * m_height; }
         // Accessors
         double getLength() const { return m_length; }
@@ -27,6 +30,7 @@ class Box {
 
 class Carton : public Box {
     public:
+        // Constructors
         Carton() { std::cout << "Carton() called.\n"; }
 
         explicit Carton(std::string_view material) : m_material{material}
@@ -37,6 +41,9 @@ class Carton : public Box {
 
         Carton(double l, double w, double h, std::string_view material) : Box{l, w, h}, m_material{material}
         { std::cout << "Carton(double,double,double,string_view) called.\n"; }
+
+        // Destructor
+        ~Carton() { std::cout << "Carton destructor. Material = " << m_material << std::endl; }
 
         // can access to protected value
         double getDoubleHeight() const { return m_height*2; }
@@ -65,3 +72,7 @@ int main() {
 // -> 생성자는 부모부터 생성된다.
 // Box() called.
 // Carton() called.
+
+// -> destructor는 자식부터 생성된다.
+// Carton destructor. Material = Solid bleached board
+// Box destructor
