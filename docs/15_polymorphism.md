@@ -32,3 +32,25 @@ Polymorphic
 
 destructor 역시 만일 동적으로 설정하지 않으면, 기본 클래스를 기준으로 호출되기 때문에 문제가 생길 수 있다.
 
+Dynamic Casts
+=
+런타임에 일어나는 형변환이다.
+
+1. downcast: 
+2. crosscast: 
+
+The Cost of Polymorphism
+=
+virtual function들을 부르기 위해 필요한 포인터가 객체 안에 추가로 생기기 때문에 더 많은 메모리가 추가로 필요하다.
+이 포인터는 vtable이라고 불리는 함수들을 모은 테이블을 가리킨다.
+
+<img src="../.images/virtual function 작동원리.png" />
+virtual function calls은 호출 과정에서 테이블에 있는 값을 읽는(일반적으로 오프셋을 통해) 간접 호출의 과정을 거치기 때문에 약간 더 많은 런타임의 오버헤드를 유발한다. 하지만 신경쓸 정도는 아니다.
+
+Pure Virtual Functions
+=
+최소 하나의  pure virtual function을 가지고 있는 클래스는 abstract class라고 부른다.
+
+비록 생성자와 멤버변수가 있더라도, pure virtual function이 있다면 클래스는 불완전하다. 그래서 인스턴스를 만들 수 없다. abstract class는 자신을 파생할 클래스를 만드는 것이 역할이다.
+
+
